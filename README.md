@@ -1,6 +1,8 @@
 dbd-null
 ========
 
+[![Build Status](https://secure.travis-ci.org/algernon/dbd-null.png?branch=master)](http://travis-ci.org/algernon/dbd-null)
+
 This is a very primitive database driver for [libdbi][1], that does
 pretty much nothing. It does just enough to make [syslog-ng][2] work
 with it without throwing errors all over the place.
