@@ -1,0 +1,8 @@
+language: c
+install: sudo apt-get install libdbi0-dev pkg-config
+before_script:
+  - autoreconf -i
+script:
+  - ./configure
+  - make
+  - make check
