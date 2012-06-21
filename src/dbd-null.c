@@ -181,6 +181,9 @@ dbd_query (dbi_conn_t *conn, const char *statement)
       dbi_conn_get_option_numeric (conn, "null.error.commit") != 0)
     return NULL;
 
+  if (dbi_conn_get_option_numeric (conn, "null.error.query") != 0)
+    return NULL;
+
   res = _dbd_result_create (conn, NULL, 0, 0);
   _dbd_result_set_numfields (res, 0);
 

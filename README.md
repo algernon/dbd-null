@@ -29,6 +29,9 @@ The driver also accepts the following other options:
 * null.error.commit: When set to a non-zero value, and the driver
   receives a query starting with *COMMIT*, the query will fail instead
   of returning an empty result.
+* null.error.query: Similarly to `null.error.commit`, when set to a
+  non-zero value, **every** query the driver receives will fail
+  instead of returning an empty result.
 
  [1]: http://libdbi.sourceforge.net/
  [2]: http://www.balabit.com/network-security/syslog-ng
