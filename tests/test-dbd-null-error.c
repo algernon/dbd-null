@@ -9,6 +9,8 @@ main (int argc, char *argv[])
 {
   dbi_conn conn;
   dbi_result result;
+  const char *err_msg;
+  int err_code;
 
   if (argc < 2)
     {
@@ -34,6 +36,22 @@ main (int argc, char *argv[])
 
   dbi_conn_set_option_numeric (conn, "null.error.commit", 0);
   result = dbi_conn_query (conn, "COMMIT");
+  assert (result != NULL);
+  dbi_result_free (result);
+
+  /*
+   * Normal queries
+   */
+  result = dbi_conn_query (conn, "SELECT * FROM DUAL");
+  assert (result != NULL);
+  dbi_result_free (result);
+
+  dbi_conn_set_option_numeric (conn, "null.error.query", 1);
+  result = dbi_conn_query (conn, "SELECT * FROM DUAL");
+  assert (result == NULL);
+
+  dbi_conn_set_option_numeric (conn, "null.error.query", 0);
+  result = dbi_conn_query (conn, "SELECT * FROM DUAL");
   assert (result != NULL);
   dbi_result_free (result);
 
