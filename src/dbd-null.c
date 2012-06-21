@@ -1,5 +1,5 @@
 /* dbd-null - dummy database driver for libdbi.
- * Copyright (C) 2011 Gergely Nagy <algernon@balabit.hu>
+ * Copyright (C) 2011-2012 Gergely Nagy <algernon@balabit.hu>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -52,18 +52,18 @@ _dbd_null_sleep (dbi_conn_t *conn, const char *opt_name)
 
 void
 dbd_register_driver (const dbi_info_t **_driver_info, const char ***_custom_functions,
-		     const char ***_reserved_words)
+                     const char ***_reserved_words)
 {
-        *_driver_info = &driver_info;
-        *_custom_functions = custom_functions;
-        *_reserved_words = reserved_words;
+  *_driver_info = &driver_info;
+  *_custom_functions = custom_functions;
+  *_reserved_words = reserved_words;
 }
 
 int
 dbd_initialize (dbi_driver_t *driver)
 {
-        _dbd_register_driver_cap(driver, "safe_dlclose", 1);
-        return 0;
+  _dbd_register_driver_cap(driver, "safe_dlclose", 1);
+  return 0;
 }
 
 int
@@ -159,7 +159,7 @@ dbd_conn_quote_string (dbi_conn_t *conn, const char *orig, char *dest)
 
 size_t
 dbd_quote_binary (dbi_conn_t *conn, const unsigned char *orig, size_t from_length,
-		  unsigned char **ptr_dest)
+                  unsigned char **ptr_dest)
 {
   unsigned char *tmp;
 
@@ -177,7 +177,7 @@ dbd_query (dbi_conn_t *conn, const char *statement)
 
   _dbd_null_sleep (conn, "null.sleep.query");
 
- if (strcasecmp (statement, "COMMIT") == 0 &&
+  if (strcasecmp (statement, "COMMIT") == 0 &&
       dbi_conn_get_option_numeric (conn, "null.error.commit") != 0)
     return NULL;
 
@@ -232,7 +232,7 @@ dbd_get_seq_last (dbi_conn_t *conn, const char *sequence)
 {
   return 0;
 }
-    
+
 unsigned long long
 dbd_get_seq_next (dbi_conn_t *conn, const char *sequence)
 {
