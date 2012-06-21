@@ -32,6 +32,12 @@ The driver also accepts the following other options:
 * null.error.query: Similarly to `null.error.commit`, when set to a
   non-zero value, **every** query the driver receives will fail
   instead of returning an empty result.
+* null.geterror.errno: When `dbi_conn_get_error()` is called, this
+  option is checked to see what errno to set. If unset, the driver
+  uses 0.
+* null.geterror.errmsg: When `dbi_conn_get_error()` is called, this
+  option is checked to see what error message should be set. If unset,
+  the driver sets the error message to NULL.
 
  [1]: http://libdbi.sourceforge.net/
  [2]: http://www.balabit.com/network-security/syslog-ng

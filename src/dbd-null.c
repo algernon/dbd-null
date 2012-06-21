@@ -207,8 +207,23 @@ dbd_select_db (dbi_conn_t *conn, const char *db)
 int
 dbd_geterror (dbi_conn_t *conn, int *errno, char **errstr)
 {
-  *errno = 0;
-  *errstr = NULL;
+  *errno = dbi_conn_get_option_numeric (conn, "null.geterror.errno");
+  if (*errno > 0)
+    {
+      const char *msg;
+
+      msg = dbi_conn_get_option (conn, "null.geterror.message");
+      if (msg)
+        *errstr = strdup (msg);
+      else
+        *errstr = NULL;
+    }
+  else
+    {
+      *errno = 0;
+      *errstr = NULL;
+    }
+
   return 3;
 }
 
