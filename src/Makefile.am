@@ -1,5 +1,3 @@
-AUTOMAKE_OPTIONS	= foreign
-
 null_ltlibs		= libdbdnull.la
 null_ldflags		= -module -avoid-version
 null_sources		= dbd-null.c
