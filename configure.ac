@@ -1,10 +1,10 @@
 dnl Process this file with autoconf to produce a configure script.
-AC_INIT(src/dbd-null.c)
-
 AC_INIT([libdbd-null], [3], [algernon@balabit.hu])
 AM_INIT_AUTOMAKE([foreign])
+
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([no])])
 
+AC_CONFIG_SRCDIR([src/dbd-null.c])
 AM_CONFIG_HEADER(config.h)
 
 AC_CANONICAL_HOST
