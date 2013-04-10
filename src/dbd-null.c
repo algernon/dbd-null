@@ -220,7 +220,7 @@ dbd_query (dbi_conn_t *conn, const char *statement)
 dbi_result_t *
 dbd_query_null (dbi_conn_t *conn, const unsigned char *statement, size_t st_length)
 {
-  _dbd_null_log (conn, statement);
+  _dbd_null_log (conn, (const char *)statement);
   _dbd_null_sleep (conn, "null.sleep.query_null");
   return NULL;
 }
