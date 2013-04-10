@@ -1,6 +1,6 @@
 dnl Process this file with autoconf to produce a configure script.
 AC_INIT([libdbd-null], [3], [algernon@balabit.hu])
-AM_INIT_AUTOMAKE([foreign])
+AM_INIT_AUTOMAKE([foreign subdir-objects])
 
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([no])])
 
@@ -17,6 +17,7 @@ dnl Check for programs
 dnl ====================================
 
 AC_PROG_CC
+AC_PROG_CC_C_O
 AC_PROG_CPP
 AC_PROG_LD
 AC_PROG_INSTALL
@@ -73,6 +74,4 @@ AC_CHECK_DBI
 
 AC_OUTPUT([
 	Makefile
-	src/Makefile
-        tests/Makefile
 	])
