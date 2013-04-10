@@ -1,5 +1,5 @@
 dnl Process this file with autoconf to produce a configure script.
-AC_INIT([libdbd-null], [3], [algernon@balabit.hu])
+AC_INIT([libdbd-null],[4],[algernon@balabit.hu])
 AM_INIT_AUTOMAKE([foreign subdir-objects])
 
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([no])])

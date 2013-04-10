@@ -1,3 +1,12 @@
+dbd-null (4-1) unstable; urgency=low
+
+  * New upstream release.
+    + Supports returning an error on every (or every Nth) query.
+    + Allows setting the returned error/errno.
+    + Support logging operations to a file.
+
+ -- Gergely Nagy <algernon@madhouse-project.org>  Wed, 10 Apr 2013 15:46:51 +0200
+
 dbd-null (3-1) unstable; urgency=low
 
   * New upstream release.

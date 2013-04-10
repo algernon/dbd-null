@@ -2,11 +2,11 @@ Format: http://anonscm.debian.org/viewvc/dep/web/deps/dep5.mdwn?revision=174&vie
 Upstream-Name: dbd-null
 Upstream-Contact: Gergely Nagy <algernon@balabit.hu>
 Source: git://github.com/algernon/dbd-null.git
-Copyright: Copyright (C) 2011 Gergely Nagy <algernon@balabit.hu>
+Copyright: Copyright (C) 2011-2013 Gergely Nagy <algernon@balabit.hu>
 License: LGPL-2.1+
 
 Files: *
-Copyright: Copyright (C) 2011 Gergely Nagy <algernon@balabit.hu>
+Copyright: Copyright (C) 2011-2013 Gergely Nagy <algernon@balabit.hu>
 License: LGPL-2.1+
 
 License: LGPL-2.1+
