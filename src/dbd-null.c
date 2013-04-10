@@ -192,6 +192,8 @@ dbd_quote_binary (dbi_conn_t *conn, const unsigned char *orig, size_t from_lengt
 dbi_result_t *
 dbd_query (dbi_conn_t *conn, const char *statement)
 {
+  static unsigned int query_counter = 0;
+  int nth;
   dbi_result_t *res;
 
   _dbd_null_log (conn, statement);
@@ -202,6 +204,11 @@ dbd_query (dbi_conn_t *conn, const char *statement)
     return NULL;
 
   if (dbi_conn_get_option_numeric (conn, "null.error.query") != 0)
+    return NULL;
+
+  nth = dbi_conn_get_option_numeric (conn, "null.error.query.nth");
+  query_counter++;
+  if (nth && query_counter && (query_counter % nth == 0))
     return NULL;
 
   res = _dbd_result_create (conn, NULL, 0, 0);

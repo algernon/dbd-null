@@ -32,6 +32,9 @@ The driver also accepts the following other options:
 * null.error.query: Similarly to `null.error.commit`, when set to a
   non-zero value, **every** query the driver receives will fail
   instead of returning an empty result.
+* null.error.query.nth: Similarly to `null.error.query`, when set to a
+  non-zero value, every `nth` query the driver receives will fail
+  instead of returning an empty result.
 * null.geterror.errno: When `dbi_conn_get_error()` is called, this
   option is checked to see what errno to set. If unset, the driver
   uses 0.
