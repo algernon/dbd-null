@@ -5,7 +5,7 @@ AM_INIT_AUTOMAKE([foreign subdir-objects])
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([no])])
 
 AC_CONFIG_SRCDIR([src/dbd-null.c])
-AM_CONFIG_HEADER(config.h)
+AC_CONFIG_HEADERS([config.h])
 
 AC_CANONICAL_HOST
 
@@ -19,9 +19,9 @@ dnl ====================================
 AC_PROG_CC
 AC_PROG_CC_C_O
 AC_PROG_CPP
-AC_PROG_LD
+LT_PATH_LD
 AC_PROG_INSTALL
-AM_PROG_LIBTOOL
+LT_INIT
 
 dnl ==============================
 dnl Check for libraries
@@ -72,6 +72,7 @@ AC_SUBST(DBI_INCLUDE)
 
 AC_CHECK_DBI
 
-AC_OUTPUT([
+AC_CONFIG_FILES([
 	Makefile
 	])
+AC_OUTPUT
