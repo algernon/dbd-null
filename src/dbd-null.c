@@ -1,5 +1,5 @@
 /* dbd-null - dummy database driver for libdbi.
- * Copyright (C) 2011-2012 Gergely Nagy <algernon@balabit.hu>
+ * Copyright (C) 2011-2013 Gergely Nagy <algernon@balabit.hu>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -24,6 +24,7 @@
 #include <dbi/dbd.h>
 
 #include <string.h>
+#include <stdio.h>
 #include <unistd.h>
 
 #include "config.h"
@@ -50,6 +51,22 @@ _dbd_null_sleep (dbi_conn_t *conn, const char *opt_name)
     sleep (n);
 }
 
+static inline void
+_dbd_null_log (dbi_conn_t *conn, const char *message)
+{
+  const char *fn;
+  FILE *f;
+
+  fn = dbi_conn_get_option (conn, "null.log.filename");
+  if (!fn)
+    return;
+
+  f = fopen (fn, "a");
+  fwrite (message, strlen (message), 1, f);
+  fwrite ("\n", 1, 1, f);
+  fclose (f);
+}
+
 void
 dbd_register_driver (const dbi_info_t **_driver_info, const char ***_custom_functions,
                      const char ***_reserved_words)
@@ -69,6 +86,7 @@ dbd_initialize (dbi_driver_t *driver)
 int
 dbd_connect (dbi_conn_t *conn)
 {
+  _dbd_null_log (conn, "CONNECT");
   _dbd_null_sleep (conn, "null.sleep.connect");
   return 0;
 }
@@ -76,6 +94,7 @@ dbd_connect (dbi_conn_t *conn)
 int
 dbd_disconnect (dbi_conn_t *conn)
 {
+  _dbd_null_log (conn, "DISCONNECT");
   _dbd_null_sleep (conn, "null.sleep.disconnect");
   return 0;
 }
@@ -175,6 +194,7 @@ dbd_query (dbi_conn_t *conn, const char *statement)
 {
   dbi_result_t *res;
 
+  _dbd_null_log (conn, statement);
   _dbd_null_sleep (conn, "null.sleep.query");
 
   if (strcasecmp (statement, "COMMIT") == 0 &&
@@ -193,6 +213,7 @@ dbd_query (dbi_conn_t *conn, const char *statement)
 dbi_result_t *
 dbd_query_null (dbi_conn_t *conn, const unsigned char *statement, size_t st_length)
 {
+  _dbd_null_log (conn, statement);
   _dbd_null_sleep (conn, "null.sleep.query_null");
   return NULL;
 }

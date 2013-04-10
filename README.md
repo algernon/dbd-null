@@ -38,6 +38,8 @@ The driver also accepts the following other options:
 * null.geterror.errmsg: When `dbi_conn_get_error()` is called, this
   option is checked to see what error message should be set. If unset,
   the driver sets the error message to NULL.
+* null.log.filename: When set, most operations (connect, disconnect,
+  and queries) will be logged to the given filename.
 
  [1]: http://libdbi.sourceforge.net/
  [2]: http://www.balabit.com/network-security/syslog-ng

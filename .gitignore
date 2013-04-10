@@ -28,4 +28,5 @@ stamp-*
 /tests/test-dbd-null
 /tests/test-dbd-null-sleep
 /tests/test-dbd-null-error
+/tests/test-dbd-null-log
 .deps/
