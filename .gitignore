@@ -25,6 +25,7 @@ stamp-*
 /debian/libdbd-null/
 /debian/*substvars
 /debian/*debhelper.log
+/debian/autoreconf.*
 .libs/
 /tests/test-dbd-null
 /tests/test-dbd-null-sleep

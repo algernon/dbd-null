@@ -1,3 +1,12 @@
+dbd-null (4-2) unstable; urgency=low
+
+  * Standards-Version: 3.9.3
+  * Converted to debhelper 9+
+  * Use dh-autoreconf
+  * Update the Format URL of the copyright-format spec
+
+ -- Gergely Nagy <algernon@madhouse-project.org>  Fri, 12 Apr 2013 16:24:23 +0200
+
 dbd-null (4-1) unstable; urgency=low
 
   * New upstream release.

@@ -2,8 +2,8 @@ Source: dbd-null
 Section: libs
 Priority: extra
 Maintainer: Gergely Nagy <algernon@balabit.hu>
-Build-Depends: debhelper (>= 7), libdbi0-dev | libdbi-dev, automake, autoconf, libtool, pkg-config
-Standards-Version: 3.8.3
+Build-Depends: debhelper (>= 9), libdbi0-dev | libdbi-dev, automake, autoconf, libtool, pkg-config, dh-autoreconf
+Standards-Version: 3.9.3
 Homepage: https://github.com/algernon/dbd-null
 
 Package: libdbd-null
