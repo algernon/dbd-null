@@ -33,3 +33,4 @@ stamp-*
 /tests/test-dbd-null-log
 /tests/test-dbd-null-error-nth
 .deps/
+.dirstamp
