@@ -7,6 +7,7 @@
 *.lo
 core
 Makefile
+/compile
 /config.h
 /config.guess
 /config.h.in
@@ -27,6 +28,7 @@ stamp-*
 /debian/*debhelper.log
 /debian/autoreconf.*
 .libs/
+/test-driver
 /tests/test-dbd-null
 /tests/test-dbd-null-sleep
 /tests/test-dbd-null-error
