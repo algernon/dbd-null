@@ -1,4 +1,5 @@
 AM_MAKEFLAGS			= --no-print-directory
+ACLOCAL_AMFLAGS			= -Im4
 
 AM_CPPFLAGS			= @DBI_INCLUDE@
 LIBS				= -ldbi
