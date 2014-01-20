@@ -7,4 +7,6 @@ else
         libdir="${rootdir}/src/.libs"
 fi
 
-$1 "${libdir}"
+for t in ${TESTS}; do
+        $t ${libdir}
+done
