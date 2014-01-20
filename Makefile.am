@@ -1,6 +1,6 @@
 AM_MAKEFLAGS			= --no-print-directory
 
-INCLUDES			= @DBI_INCLUDE@
+AM_CPPFLAGS			= @DBI_INCLUDE@
 LIBS				= -ldbi
 
 libdir				= ${driverdir}
